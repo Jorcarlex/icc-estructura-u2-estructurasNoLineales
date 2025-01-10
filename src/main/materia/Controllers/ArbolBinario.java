@@ -6,11 +6,13 @@ public class ArbolBinario {
 
     private Node root;
 
+    //metodo para insertar un nodo en el arbol
     public void insert(int value) {
         root = insert(root, value);
 
     }
 
+    //metodo para insertar un nodo en el arbol
     private Node insert(Node node, int value) {
 
         if (node == null)
@@ -25,11 +27,12 @@ public class ArbolBinario {
         return node;
     }
 
+    //clase para imprimir el arbol 
     public void printTree() {
-
         printTree(root, "", true);
     }
 
+    //clase para imprimir el arbol 
     public void printTree(Node node, String prefix, boolean isLeft) {
 
         if (node != null) {
@@ -52,7 +55,6 @@ public class ArbolBinario {
 
     public Node getRoot() {
         return root;
-
     }
 
 }

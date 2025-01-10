@@ -2,10 +2,12 @@ package main.materia.Modelo;
 
 public class Node {
 
+    //atributos
     private int value;
     private Node left;
     private Node right;
 
+    //getters y setters
     public int getValue() {
         return value;
     }
@@ -25,11 +27,14 @@ public class Node {
         this.right = right;
     }
 
+    //constructor
     public Node(int value) {
         this.value = value;
         this.left = null;
         this.right = null;
     }
+    
+    //toString
     @Override
     public String toString() {
         return "Node [value=" + value + ", left=" + left + ", right=" + right + "]";
