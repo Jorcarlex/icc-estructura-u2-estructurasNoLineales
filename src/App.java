@@ -10,14 +10,20 @@ public class App {
 
     }
 
+    // Ejercicio 3
     private static void runEjercicio3() {
         ArbolBinario arbolBinario = new ArbolBinario();
-        int[] numeros = { 4, 2, 1, 3, 7, 6, 9};
+        int[] numeros = { 4, 2, 1, 3, 7, 6, 9 };
 
         for (int valor : numeros) {
             arbolBinario.insert(valor);
         }
+
+        System.out.println("Input: ");
         arbolBinario.printTree();
+
+        System.out.println("Ouput: ");
+        ListLevels.printLevels(arbolBinario);
     }
 
     public static void runArbolBonario() {
