@@ -6,7 +6,14 @@ public class Node {
     private int value;
     private Node left;
     private Node right;
+    private int height;
 
+    public int getHeight() {
+        return height;
+    }
+    public void setHeight(int height) {
+        this.height = height;
+    }
     //getters y setters
     public int getValue() {
         return value;

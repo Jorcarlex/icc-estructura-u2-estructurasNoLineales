@@ -1,4 +1,5 @@
 import main.Ejercicio_03_listLeves.ListLevels;
+import main.materia.Controllers.ArbolAVL;
 import main.materia.Controllers.ArbolBinario;
 import main.materia.Controllers.ArbolRecorridos;
 
@@ -6,10 +7,22 @@ public class App {
     public static void main(String[] args) throws Exception {
         // System.out.println("Hello, World!");
         // runArbolBonario();
-        runEjercicio3();
-
+        // runEjercicio3();
+        runArbolAvl();
     }
 
+    // --------------------------------------------------------
+    public static void runArbolAvl() {
+
+        ArbolAVL arbolAVL = new ArbolAVL();
+        int[] values = { 10, 20, 15, 24, 9, 8, 21, 23, 50, 25 };
+
+        for (int value : values) {
+            arbolAVL.insert(value);
+        }
+    }
+
+    // --------------------------------------------------------
     // Ejercicio 3
     private static void runEjercicio3() {
         ArbolBinario arbolBinario = new ArbolBinario();
@@ -26,6 +39,7 @@ public class App {
         ListLevels.printLevels(arbolBinario);
     }
 
+    // --------------------------------------------------------
     public static void runArbolBonario() {
 
         // Se crea un arbol binario

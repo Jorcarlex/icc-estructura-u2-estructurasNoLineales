@@ -24,6 +24,7 @@ public class ListLevels {
         // .poll() = remueve y devuelve el primer elemento de la cola
         // .add() = agrega un elemento al final de la cola
         // .isEmpty() = devuelve true si la cola está vacía
+        // .getValue() = devuelve el valor del nodo
         while (!queue.isEmpty()) {
             int levelSize = queue.size();
             List<Integer> currentLevel = new ArrayList<>();
