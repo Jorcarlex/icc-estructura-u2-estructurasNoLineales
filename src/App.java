@@ -1,30 +1,86 @@
-import main.Ejercicio_03_listLeves.ListLevels;
+import java.util.List;
+import java.util.Scanner;
+
+import main.Ejercicio_01_insert.InsertBSTTest;
+import main.Ejercicio_02_invert.InvertBinaryTree;
+import main.Ejercicio_03_listLevels.ListLevels;
+import main.Ejercicio_04_depth.Depth;
 import main.materia.Controllers.ArbolAVL;
 import main.materia.Controllers.ArbolBinario;
 import main.materia.Controllers.ArbolRecorridos;
+import main.materia.Modelo.Node;
 
 public class App {
     public static void main(String[] args) throws Exception {
         // System.out.println("Hello, World!");
+
         // runArbolBonario();
-        // runEjercicio3();
-        runArbolAvl();
+        // runArbolAvl();
+
+        // ejercicio_1();
+        // ejercicio_2();
+        // ejercicio_3();
+        // ejercicio_4();
     }
 
-    // --------------------------------------------------------
-    public static void runArbolAvl() {
+    public static void ejercicio_1() {
+        InsertBSTTest bst = new InsertBSTTest();
+        Scanner scanner = new Scanner(System.in);
 
-        ArbolAVL arbolAVL = new ArbolAVL();
-        int[] values = { 10, 20, 15, 24, 9, 8, 21, 23, 50, 25 };
+        boolean inputValid = false;
 
-        for (int value : values) {
-            arbolAVL.insert(value);
+        while (!inputValid) {
+            System.out.println("Input:");
+            String input = scanner.nextLine();
+
+            // Convertir la entrada del usuario en un arreglo de enteros
+            String[] inputValues = input.split(",");
+            int[] values = new int[inputValues.length];
+
+            try {
+                for (int i = 0; i < inputValues.length; i++) {
+                    values[i] = Integer.parseInt(inputValues[i].trim());
+                }
+
+                // Construir el árbol con los valores ingresados
+                bst.buildTreeInteractive(values);
+                inputValid = true; // Si no hay excepción, el input es válido
+
+                // Imprimir el árbol resultante
+                System.out.println("\nOutput:");
+                bst.printTree();
+
+            } catch (NumberFormatException e) {
+                System.out.println("Error: Asegúrese de ingresar solo números enteros separados por comas.");
+            }
         }
+
+        scanner.close();
     }
 
-    // --------------------------------------------------------
-    // Ejercicio 3
-    private static void runEjercicio3() {
+    public static void ejercicio_2() {
+        InvertBinaryTree ibt = new InvertBinaryTree();
+
+        // Valores para construir el árbol binario
+        int[] values = { 10, 20, 15, 24, 9, 8, 21, 22, 50, 25 };
+
+        // Construir el árbol binario
+        Node root = ibt.buildBinaryTree(values);
+
+        // Imprimir el árbol original
+        System.out.println("Input:");
+        ibt.printTree(root, "", true);
+
+        // Invertir el árbol binario
+        Node invertedRoot = ibt.invertTree(root);
+
+        // Imprimir el árbol invertido
+        System.out.println("\nOutput:");
+        ibt.printTree(invertedRoot, "", true);
+
+    }
+
+    private static void ejercicio_3() {
         ArbolBinario arbolBinario = new ArbolBinario();
         int[] numeros = { 4, 2, 1, 3, 7, 6, 9 };
 
@@ -37,6 +93,38 @@ public class App {
 
         System.out.println("Ouput: ");
         ListLevels.printLevels(arbolBinario);
+    }
+
+    public static void ejercicio_4() {
+        Depth depth = new Depth();
+
+        // Valores para construir el árbol binario
+        int[] values = { 10, 20, 15, 24, 9, 8, 21 };
+
+        // Construir el árbol binario
+        Node root = depth.buildBinaryTree(values);
+
+        // Imprimir el árbol binario en formato jerárquico
+        System.out.println("Intput:");
+        depth.printTree(root, "", true);
+
+        // Calcular la profundidad máxima
+        int maxDepth = depth.maxDepth(root);
+
+        // Imprimir el resultado
+        System.out.println("\nOutput: ");
+        System.out.println(maxDepth);
+    }
+
+    // --------------------------------------------------------
+    public static void runArbolAvl() {
+
+        ArbolAVL arbolAVL = new ArbolAVL();
+        int[] values = { 10, 20, 15, 24, 9, 8, 21, 23, 50, 25 };
+
+        for (int value : values) {
+            arbolAVL.insert(value);
+        }
     }
 
     // --------------------------------------------------------

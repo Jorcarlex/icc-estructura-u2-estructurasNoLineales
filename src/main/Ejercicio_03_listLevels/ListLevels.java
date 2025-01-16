@@ -1,4 +1,4 @@
-package main.Ejercicio_03_listLeves;
+package main.Ejercicio_03_listLevels;
 
 import main.materia.Modelo.Node;
 import main.materia.Controllers.ArbolBinario;
