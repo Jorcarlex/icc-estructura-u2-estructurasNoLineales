@@ -8,7 +8,9 @@ import main.Ejercicio_04_depth.Depth;
 import main.materia.Controllers.ArbolAVL;
 import main.materia.Controllers.ArbolBinario;
 import main.materia.Controllers.ArbolRecorridos;
+import main.materia.Controllers.Graph;
 import main.materia.Modelo.Node;
+import main.materia.Modelo.NodeG;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -21,7 +23,130 @@ public class App {
         // ejercicio_2();
         // ejercicio_3();
         // ejercicio_4();
+
+        //runGraph();
+        runGraphEjercicio();
     }
+    private static void runGraphEjercicio(){
+
+        Graph graph = new Graph();
+
+        NodeG node0 = graph.addNode(0);
+        NodeG node1 = graph.addNode(1);
+        NodeG node2 = graph.addNode(2);
+        NodeG node3 = graph.addNode(3);
+        NodeG node4 = graph.addNode(4);
+        NodeG node5 = graph.addNode(5);
+        NodeG node7 = graph.addNode(7);
+        NodeG node8 = graph.addNode(8);
+        NodeG node9 = graph.addNode(9);
+
+        graph.addEdge(node0, node1);
+        graph.addEdge(node0, node3);
+        graph.addEdge(node0, node5);
+
+        graph.addEdge(node1, node0);
+        graph.addEdge(node1, node2);
+        graph.addEdge(node1, node4);
+        graph.addEdge(node1, node8);
+
+        graph.addEdge(node2, node3);
+        graph.addEdge(node2, node1);
+
+        graph.addEdge(node3, node0);
+        graph.addEdge(node3, node2);
+        graph.addEdge(node3, node4);
+        graph.addEdge(node3, node7);
+        graph.addEdge(node3, node9);
+
+        graph.addEdge(node4, node3);
+        graph.addEdge(node4, node1);
+
+        graph.addEdge(node5, node0);
+
+        graph.addEdge(node7, node3);
+        graph.addEdge(node7, node8);
+
+        graph.addEdge(node8, node7);
+        graph.addEdge(node8, node1);
+
+        graph.addEdge(node9, node1);
+
+        graph.printGraph();
+
+        System.out.println("---------------------");
+        System.out.println("\nGraph No Direcconado:");
+        System.out.println("");
+
+        graph.getDFS(node0);
+
+
+
+    }
+
+        private static void runGraph() {
+        Graph graph = new Graph();
+
+        /*
+         * // Se crean los nodos
+         * NodeG node1 = graph.addNode(5);
+         * NodeG node2 = graph.addNode(7);
+         * NodeG node3 = graph.addNode(9);
+         * NodeG node4 = graph.addNode(11);
+         * NodeG node5 = graph.addNode(3);
+         * 
+         * graph.addEdge(node1, node5);
+         * graph.addEdge(node1, node2);
+         * graph.addEdge(node1, node3);
+         * graph.addEdge(node2, node3);
+         * graph.addEdge(node5, node3);
+         * graph.addEdge(node5, node4);
+         * 
+         * graph.printGraph();
+         */
+
+        // Se crean los nodos
+        NodeG node0 = graph.addNode(0);
+        NodeG node1 = graph.addNode(1);
+        NodeG node2 = graph.addNode(2);
+        NodeG node3 = graph.addNode(3);
+        NodeG node4 = graph.addNode(4);
+        NodeG node5 = graph.addNode(5);
+
+        // Se crean las aristas entre los nodos del grafo dirigido
+        graph.addEdgeUni(node0, node3);
+        graph.addEdgeUni(node0, node5);
+        graph.addEdgeUni(node3, node2);
+        graph.addEdgeUni(node3, node4);
+        graph.addEdgeUni(node2, node1);
+        graph.addEdgeUni(node4, node1);
+        graph.addEdgeUni(node1, node0);
+
+        graph.printGraph();
+
+        System.out.println("\nGraph Direcconado:");
+        System.out.println("");
+
+        graph.getDFS(node0);
+        graph.getBFS(node0);
+        
+        // Se crean las aristas entre los nodos del grafo no dirigido
+        graph.addEdge(node0, node3);
+        graph.addEdge(node0, node5);
+        graph.addEdge(node3, node2);
+        graph.addEdge(node3, node4);
+        graph.addEdge(node2, node1);
+        graph.addEdge(node4, node1);
+        graph.addEdge(node1, node0);
+
+        System.out.println("");
+        System.out.println("\nGraph No Direcconado:");
+        System.out.println("");
+
+        graph.getDFS(node0);
+        graph.getBFS(node0);
+
+    } 
 
     public static void ejercicio_1() {
         InsertBSTTest bst = new InsertBSTTest();
